@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AÇAÍ DO BAIRRO - Monte seu Açaí</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="premium-bg">
+    <div class="premium-glow glow-1"></div>
+    <div class="premium-glow glow-2"></div>
+  </div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">
+        <div class="logo-icon">A</div>
+        <div class="logo-text">
+          <strong>AÇAÍ DO BAIRRO</strong>
+          <span>Artesanal & Cremoso</span>
+        </div>
+      </div>
+      <button class="cart-toggle" id="cart-toggle">
+        <span>Meu pedido</span>
+        <strong id="cart-count">0</strong>
+      </button>
+    </div>
+  </header>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-text">
+        <span class="hero-badge">★ Novo • Premium • 100% Natural</span>
+        <h1>Açaí do bairro,<br><span>feito pra você</span></h1>
+        <p>Monte seu copo com ingredientes premium. Entrega com taxa justa por bairro e validação anti-calote.</p>
+        <div class="hero-stats">
+          <div><strong>300ml</strong><span>a partir R$14</span></div>
+          <div><strong>500ml</strong><span>mais pedido</span></div>
+          <div><strong>4.9★</strong><span>1.200 avaliações</span></div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="image-card">
+          <img src="acai.jpg" alt="Açaí do Bairro" width="440" height="420" loading="eager" decoding="async">
+          <div class="image-badge">Cremoso • Gelado</div>
+        </div>
+      </div>
+    </section>
+    <div class="layout">
+      <main class="builder">
+        <div class="card premium-card">
+          <div class="card-header">
+            <div class="card-step">01</div>
+            <div>
+              <h2>Tamanho do copo</h2>
+              <p>Escolha para liberar os adicionais premium</p>
+            </div>
+          </div>
+          <div class="size-grid">
+            <button class="size-option" data-size="300" id="size-300">
+              <div class="size-top">
+                <span class="size-letter">P</span>
+                <span class="size-ml">300ml</span>
+              </div>
+              <div class="size-bottom">
+                <strong>Pequeno</strong>
+                <span>2 adicionais • R$ 14,00</span>
+              </div>
+              <div class="size-check">✓</div>
+            </button>
+            <button class="size-option" data-size="500" id="size-500">
+              <div class="size-top">
+                <span class="size-letter">M</span>
+                <span class="size-ml">500ml</span>
+              </div>
+              <div class="size-bottom">
+                <strong>Médio</strong>
+                <span>4 adicionais • R$ 20,00</span>
+              </div>
+              <div class="size-tag">Mais pedido</div>
+              <div class="size-check">✓</div>
+            </button>
+          </div>
+        </div>
+        <div class="card premium-card">
+          <div class="card-header">
+            <div class="card-step">02</div>
+            <div>
+              <h2>Adicionais premium</h2>
+              <p id="adicionais-hint">Selecione o tamanho primeiro</p>
+            </div>
+          </div>
+          <div id="empty-adicionais" class="empty-state">
+            <div class="empty-icon">🥣</div>
+            <strong>Escolha seu tamanho</strong>
+            <span>Selecione 300ml ou 500ml para liberar os adicionais</span>
+          </div>
+          <div class="custom-selects-grid" id="selects-grid"></div>
+        </div>
+        <div class="card premium-card highlight">
+          <div class="card-header">
+            <div class="card-step">03</div>
+            <div>
+              <h2>Resumo do seu açaí</h2>
+              <p>Confira antes de adicionar ao carrinho</p>
+            </div>
+          </div>
+          <div class="resumo-box" id="resumo-box"><div class="resumo-empty">Nenhum açaí montado ainda</div></div>
+          <div class="total-line"><span>Subtotal deste copo</span><strong id="current-total">R$ 0,00</strong></div>
+          <button class="btn-premium" id="btn-add-cart" disabled><span>+ Adicionar ao carrinho</span></button>
+        </div>
+      </main>
+      <aside class="cart-panel" id="cart-panel">
+        <div class="cart-card premium-cart">
+          <div class="cart-header">
+            <h3>Seu pedido</h3>
+            <button id="btn-clear-cart" class="btn-clear">Limpar</button>
+          </div>
+          <div id="cart-list" class="cart-list"><div class="cart-empty"><strong>Carrinho vazio</strong><span>Monte seu açaí ao lado</span></div></div>
+          <div class="delivery-card">
+            <div class="delivery-header">
+              <h4>Entrega</h4>
+              <span class="delivery-required">Obrigatório *</span>
+            </div>
+            <p class="delivery-alert">⚠️ Preencha corretamente para evitar calote - validação obrigatória</p>
+            
+            <div class="field">
+              <label>Nome completo *</label>
+              <input type="text" id="cliente-nome" placeholder="Ex: João Silva" autocomplete="name">
+              <span class="field-error" id="err-nome"></span>
+            </div>
+            <div class="field">
+              <label>Telefone com DDD *</label>
+              <input type="tel" id="cliente-telefone" placeholder="Ex: (11) 99999-9999" autocomplete="tel" maxlength="15">
+              <span class="field-error" id="err-telefone"></span>
+            </div>
+            <div class="field">
+              <label>Bairro *</label>
+              <div class="cs-wrapper bairro-select" id="bairro-wrapper" data-index="bairro">
+                <button type="button" class="cs-trigger" id="bairro-trigger" aria-haspopup="listbox" aria-expanded="false">
+                  <span class="cs-value"><span class="cs-placeholder">Selecione seu bairro</span></span>
+                  <span class="cs-arrow">▼</span>
+                </button>
+                <div class="cs-dropdown" id="bairro-dropdown" role="listbox"></div>
+              </div>
+              <span class="field-error" id="err-bairro"></span>
+              <span class="field-hint" id="bairro-hint"></span>
+            </div>
+          </div>
+          <div class="coupon-card">
+            <label>Cupom de desconto</label>
+            <div class="coupon-row"><input type="text" id="coupon-input" placeholder="Digite seu cupom"><button id="btn-apply-coupon">Aplicar</button></div>
+            <div id="coupon-feedback" class="coupon-feedback"></div>
+            <div class="coupon-tags"><span data-code="ACAI10">ACAI10 10%</span><span data-code="BEMVINDO">BEMVINDO R$5</span><span data-code="VERAO15">VERAO15 15%</span></div>
+          </div>
+          <div class="totals-card">
+            <div class="t-line"><span>Subtotal</span><span id="cart-subtotal">R$ 0,00</span></div>
+            <div class="t-line discount" id="discount-line" style="display:none"><span>Desconto <em id="discount-code"></em></span><span id="cart-discount">-R$ 0,00</span></div>
+            <div class="t-line delivery"><span>Entrega <small id="delivery-bairro-label">-</small></span><span id="delivery-fee">R$ 0,00</span></div>
+            <div class="t-line total"><span>Total final</span><strong id="cart-total">R$ 0,00</strong></div>
+          </div>
+          <button class="btn-checkout" id="btn-checkout" disabled>Finalizar pedido</button>
+          <p class="checkout-note">AÇAÍ DO BAIRRO • Centro R$5 • Outros R$10 • Ultra leve</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal premium-modal">
+      <div class="modal-header"><span class="modal-icon">✓</span><h3>Pedido confirmado!</h3><p>Açaí do Bairro agradece</p></div>
+      <div id="modal-content"></div>
+      <div id="modal-delivery"></div>
+      <button class="btn-premium" id="btn-close-modal">Continuar comprando</button>
+    </div>
+  </div>
+  <footer class="footer">AÇAÍ DO BAIRRO • Artesanal • Feito na hora • Entrega rápida</footer>
+  <script src="script.js"></script>
+</body>
+</html>
